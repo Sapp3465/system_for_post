@@ -1,0 +1,25 @@
+@import 'mixins';
+
+.main-container {
+  @include flex-row;
+  flex: 1;
+}
+
+.separator {
+  flex: 1;
+}
+
+.header {
+  @include font;
+  height: 32px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 132%;
+}
+
+.icon {
+  height: 15px;
+  width: 15px;
+  font-size: 15px;
+  cursor: pointer;
+}

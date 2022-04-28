@@ -1,0 +1,110 @@
+<app-header name="Catalog">
+  <app-header-button
+    *ngIf="userStatus === 'admin'"
+    (click)="replaceCatalog()"
+    [active]="false"
+    icon="file_upload" name="Replace Catalog">
+  </app-header-button>
+
+  <app-header-button
+    *ngIf="userStatus === 'admin'"
+    (click)="addProduct()"
+    [active]="false"
+    color="blue" icon="add" name="add product">
+  </app-header-button>
+</app-header>
+<div class="searcher">
+  <app-header-input placeholder="Product Code, Name..." [(ngModel)]="value" ></app-header-input>
+</div>
+
+<div class="content">
+
+  <table mat-table matSort [dataSource]="sortedData" class="mat-elevation-z8">
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef> Product Code</th>
+      <td (click)="dialogEdit(element)" mat-cell *matCellDef="let element"> {{element.code}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name</th>
+      <td (click)="dialogEdit(element)" mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="unit">
+      <th mat-header-cell *matHeaderCellDef> Unit</th>
+      <td (click)="dialogEdit(element)" mat-cell *matCellDef="let element"> {{element.units[0]?.unit}}
+        <span class="more-unit" *ngIf="element.units.length > 1">+{{ element.units.length - 1 }} more</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Price</th>
+      <td (click)="dialogEdit(element)" mat-cell *matCellDef="let element"> {{element.units[0]?.price}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="availability">
+      <th mat-header-cell *matHeaderCellDef>
+        <span class="sort-icon-container">
+          <span class="text-sort">Availability</span>
+          <app-sort-icon
+            (menuOpened)="activeAvailabilityFilter = true"
+            (menuClosed)="sortByAvailability()"
+            [matMenuTriggerFor]="menu" [active]="activeAvailabilityFilter">
+          </app-sort-icon>
+
+          <mat-menu #menu="matMenu">
+            <section (click)="$event.stopPropagation()" class="section-box" [formGroup]="availabilityForm">
+              <p><mat-checkbox
+                formControlName="inStock">In stock</mat-checkbox></p>
+              <p><mat-checkbox
+                formControlName="outOfStock">Out of stock</mat-checkbox></p>
+              <p><mat-checkbox
+                formControlName="discontinued">Discontinued</mat-checkbox></p>
+            </section>
+          </mat-menu>
+
+        </span>
+      </th>
+      <td (click)="dialogEdit(element)" mat-cell *matCellDef="let element"> {{element.availability}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions</th>
+      <td class="icon" (click)="deleteProduct(element)" mat-cell *matCellDef="let element"> {{element.actions}}
+        <mat-icon>delete</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="visibleColumns"></tr>
+    <tr class="row" mat-row *matRowDef="let row; columns: visibleColumns;"></tr>
+
+  </table>
+
+  <app-empty-table *ngIf="dataTable.length === 0" name="catalog">
+    <app-header-button
+      *ngIf="userStatus === 'admin'"
+      (click)="replaceCatalog()"
+      [active]="false"
+      icon="file_upload" name="Replace Catalog">
+    </app-header-button>
+
+    <app-header-button
+      *ngIf="userStatus === 'admin'"
+      (click)="addProduct()"
+      [active]="false"
+      color="blue" icon="add" name="add product">
+    </app-header-button>
+  </app-empty-table>
+
+  <app-custom-paginator
+    *ngrxLet="productsCount$ as count"
+    [itemsInPage]="sortedData.length"
+    [itemsCount]="count"
+    (onChangeOption)="changeHowManyLoad($event)"
+    (onBack)="loadPageData($event)"
+    (onForward)="loadPageData($event)"
+    (onQuickBack)="loadPageData($event)"
+    (onQuickForward)="loadPageData($event)"
+  ></app-custom-paginator>
+
+</div>

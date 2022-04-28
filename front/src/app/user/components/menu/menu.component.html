@@ -1,0 +1,35 @@
+<div class="main-container"
+     *ngrxLet="isOpenMenu$ as isOpen"
+     [ngStyle]="{width : isOpen ? '240px' : '70px'}">
+
+  <div class="header">
+    <app-logo [isFull]="isOpen" height="30"></app-logo>
+  </div>
+
+  <div class="buttons-container">
+    <div class="main-buttons-container" *ngrxLet="currentPage$ as page">
+      <app-menu-button
+        (click)="toOrders()" [isFull]="isOpen"
+        icon="shopping_cart" text="Orders" [active]="page === 'orders'">
+      </app-menu-button>
+      <app-menu-button
+        (click)="toCatalog()" [isFull]="isOpen"
+        icon="label" text="Catalog" [active]="page === 'catalog'">
+      </app-menu-button>
+      <div *ngrxLet="userStatus$ as status">
+        <app-menu-button
+          *ngIf="status === 'admin'"
+          (click)="toCustomers()" [isFull]="isOpen"
+          icon="perm_identity" text="Customers" [active]="page === 'customers'">
+        </app-menu-button>
+      </div>
+    </div>
+    <div class="bottom-button-container">
+      <app-menu-button
+        (click)="logout()"
+        [isFull]="isOpen" icon="logout" text="Log Out" [active]="false">
+
+      </app-menu-button>
+    </div>
+  </div>
+</div>

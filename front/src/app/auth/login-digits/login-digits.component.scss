@@ -1,0 +1,102 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  width: 440px;
+  height: 400px;
+  left: 500px;
+  top: 180px;
+
+  background: $auth-form-color;
+
+  border: 1px solid $auth-border-color;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.header-container {
+  @include font;
+  width: 273px;
+  height: 32px;
+  margin-left: 84px;
+  margin-top: 70px;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 132%;
+
+  text-align: center;
+}
+
+.top-description-container {
+  @include font;
+  margin-left: 48px;
+  margin-top: 11px;
+
+  width: 344px;
+  height: 48px;
+
+  font-size: 14px;
+  line-height: 142%;
+
+  text-align: center;
+  letter-spacing: 0.0168em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+  color: $auth-description-color;
+}
+
+.code-input-container {
+  margin-left: 48px;
+  margin-top: 22px;
+  height: 64px;
+}
+
+.bottom-description-container {
+  @include font;
+  margin-top: 24px;
+  margin-left: 48px;
+
+  width: 344px;
+  height: 48px;
+
+  font-size: 12px;
+  line-height: 130%;
+
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  color: $auth-description-color;
+}
+
+.spinner ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: $auth-description-color;
+}
+
+.spinner {
+  width: 340px;
+  margin-top: 30px;
+}
+
+@media (max-width: 320px) {
+  .main-container {
+    width: 320px;
+    border: none;
+    padding: 16px;
+    height: 450px;
+  }
+  .header-container {
+    margin-left: 8px;
+  }
+  .top-description-container {
+    width: 288px;
+    margin-left: 0;
+  }
+  .code-input-container {
+    margin-left: 0;
+  }
+  .bottom-description-container {
+    width: 288px;
+    margin-left: 0;
+  }
+}

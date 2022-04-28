@@ -1,0 +1,186 @@
+@import 'mixins';
+@import 'variables';
+
+.main-container {
+  background-color: $auth-form-color;
+}
+
+.mat-cell {
+  @include flex-row;
+  flex: 1;
+  height: 56px;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-expansion-panel::ng-deep{
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.row-item {
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.icon-arrow {
+  @include flex-row;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-container {
+  @include flex-row;
+  justify-content: center;
+  align-items: center;
+  width: 71px;
+  color: $border-untouched-color;
+}
+
+@mixin active-styles {
+  color: $touched-input-color;
+  background-color: $active-background-color;
+  border-radius: 8px;
+}
+
+.active {
+  @include active-styles;
+}
+
+.icon-arrow:hover {
+  @include active-styles;
+}
+
+.active-header {
+  background-color: $active-background-color-opacity;
+}
+
+.active-container {
+  background-color: $active-background-color-opacity;
+}
+
+.header-container {
+  @include flex-row;
+  width: 100%;
+  border-radius: 8px;
+}
+
+mat-expansion-panel-header::ng-deep {
+  padding: 0 !important;
+}
+
+.products-container {
+  margin-left: 81px;
+  margin-top: 16px;
+  margin-right: 16px;
+}
+
+.products-header {
+  @include flex-row;
+  border-bottom: 2px solid $auth-border-color;
+}
+
+.products-rows-container {
+
+}
+
+.notes-container {
+  width: 50%;
+  margin-right: 24px;
+}
+
+.address-container {
+  width: 32%;
+  margin-right: 24px;
+}
+
+.print-container {
+  @include flex-row;
+  justify-content: center;
+  align-items: center;
+  width: 17%;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.print-container:hover {
+  @include active-styles;
+  .print-text {
+    color: $touched-input-color;
+  }
+}
+
+.head-text {
+  @include font;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 142%;
+
+  letter-spacing: 0.005em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.description-text {
+  @include font;
+  font-size: 16px;
+  line-height: 150%;
+
+  letter-spacing: 0.0168em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  margin-bottom: 16px;
+}
+
+.row-container {
+  @include flex-row;
+  align-items: center;
+  height: 56px;
+  border-bottom: 1px solid $auth-border-color;
+}
+.first-in-row {
+  padding-left: 10px;
+}
+.last-in-row {
+  padding-right: 10px;
+}
+
+.product-code {
+  width: 25.3%;
+}
+
+.product {
+  width: 43.2%;
+}
+
+.unit {
+  width: 19.7%;
+}
+
+.quantity {
+  width: 11.6%;
+}
+
+.print-text {
+  @include font;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 150%;
+
+  letter-spacing: 0.005em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: $auth-description-color;
+  margin-left: 8px;
+}
+
+.change-cell {
+  @include font;
+}
+
+.change-cell:hover {
+  color: $touched-input-color;
+  background-color: $active-background-color;
+}
+
+.confirmed-cell {
+  @include font;
+  color: $input-success-color;
+}
+

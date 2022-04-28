@@ -1,0 +1,27 @@
+@import 'variables';
+@import 'mixins';
+
+.checkbox-container {
+  padding-right: 17px;
+  padding-left: 8px;
+  line-height: 2.5;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: $touched-input-color!important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: $touched-input-color;
+}
+
+.header {
+  @include font;
+  font-size: 12px;
+  line-height: 130%;
+
+  letter-spacing: 0.03em;
+  cplor: $untouched-color;
+  margin-left: 12px;
+}

@@ -1,0 +1,18 @@
+<div class="main-container" [ngClass]="{'focused-block' : isFocused}">
+  <div class="loop-container" [ngClass]="{'focused-icon' : isFocused}">
+    <mat-icon class="icon">search</mat-icon>
+  </div>
+
+  <div class="input-container">
+    <input
+      [value]="val"
+      [placeholder]="placeholder"
+      class="input"
+      (blur)="blur()" (focus)="setFocus()"
+      [(ngModel)]="value">
+  </div>
+
+  <div class="delete-container">
+    <mat-icon (click)="del()" class="icon">close</mat-icon>
+  </div>
+</div>

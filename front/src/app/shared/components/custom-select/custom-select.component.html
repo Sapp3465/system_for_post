@@ -1,0 +1,20 @@
+<div class="main-container">
+  <div class="title"
+       [ngClass]="{ 'focused-text': isFocused, 'error-text': invalid && !isFocused }">
+    {{ title }}</div>
+  <div class="select-container"
+       [ngClass]="{ 'focused-container': isFocused, 'error-container': invalid && !isFocused }">
+    <mat-select
+      [(ngModel)]="value"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      [placeholder]="'Choose ' + title"
+      (selectionChange)="changeValue($event)">
+      <mat-option *ngFor="let option of options" [value]="option">{{ option | titlecase }}</mat-option>
+    </mat-select>
+  </div>
+  <div *ngIf="!!invalid" class="title error-text">
+    {{ invalid }}
+  </div>
+</div>
+

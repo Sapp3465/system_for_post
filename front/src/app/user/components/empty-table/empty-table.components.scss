@@ -1,0 +1,47 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  @include flex-column;
+  background-color: $auth-form-color;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 88px;
+  margin-top: 66px;
+}
+
+.header {
+  @include font;
+  margin-top: 24px;
+  height: 28px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 138%;
+  letter-spacing: 0.0075em;
+  color: $auth-description-color;
+}
+
+.description {
+  @include font;
+  @include flex-column;
+  margin-top: 8px;
+  width: 254px;
+  height: 40px;
+  font-size: 14px;
+  line-height: 142%;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.0168em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: $unused_gray;
+}
+
+.content{
+  @include flex-row;
+  margin-top: 48px;
+  margin-bottom: 55px;
+  justify-content: center;
+}

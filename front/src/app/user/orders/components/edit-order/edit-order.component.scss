@@ -1,0 +1,53 @@
+@import 'mixins';
+@import 'variables';
+
+.main-container {
+  width: 376px;
+}
+
+.order-no-container, .note-container, .address-container, .three-input-container, .add-button {
+  margin-top: 16px;
+}
+
+.edit-button-container {
+  width: 100px;
+}
+
+.close-button {
+  margin-right: 16px;
+  width: 90px;
+}
+
+.three-input-container {
+  @include flex-row;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.item-input {
+  margin-right: 10px;
+  flex: 1;
+}
+
+.add-button {
+  width: 40%;
+}
+
+.delete {
+  @include flex-column;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 19px;
+}
+
+.delete:hover {
+  background-color: $hover-delete-color;
+  color: $red-button-color
+}
+
+

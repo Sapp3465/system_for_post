@@ -1,0 +1,145 @@
+@import 'variables';
+@import 'mixins';
+
+ngx-dropzone::ng-deep {
+  height: 130px;
+  background: $active_background_color;
+
+  border: 1px dashed $touched_input_color;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
+.header-content {
+  @include font;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.005em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  text-align: center;
+
+  color: $touched-input-color;
+  width: 268px;
+  margin-left: 65px;
+}
+
+.description-content {
+  @include font;
+  width: 225px;
+  margin-left: 71px;
+  margin-top: 6px;
+  color: $touched-input-color;
+
+  font-size: 12px;
+  line-height: 130%;
+
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.drag-content {
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.template-container {
+  @include flex-row;
+  color: $touched_input_color;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 12px;
+}
+
+.text-template {
+  @include font;
+  font-size: 14px;
+  line-height: 142%;
+
+  letter-spacing: 0.005em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.black-text {
+  color: $auth-description-color;
+}
+
+.file-prev-container {
+  @include flex-row;
+  width: 392px;
+  height: 72px;
+  background-color: $active-background-color;
+  border: 1px solid $touched-input-color;
+  box-sizing: border-box;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.error-prev-container {
+  background-color: $hover-delete-color;
+  border: 1px solid $red-button-color;
+}
+
+.icon-container {
+  margin-top: 23px;
+  margin-left: 20px;
+}
+
+.icon-file {
+  width: 30px;
+  height: 30px;
+}
+
+.text-file-container {
+  margin-left: 12px;
+  margin-top: 16px;
+  flex: 1;
+}
+
+.name-file {
+  @include font;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.005em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.size-file {
+  @include font;
+  font-size: 12px;
+  line-height: 130%;
+  letter-spacing: 0.03em;
+}
+
+.close-file-container {
+  margin-top: 24px;
+  margin-right: 28px;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+}
+
+.err-msg {
+  margin-top: 12px;
+}
+
+.download-link {
+  text-decoration: none;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.disabled-button {
+  cursor: default;
+}

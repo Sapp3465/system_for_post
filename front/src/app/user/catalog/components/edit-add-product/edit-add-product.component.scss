@@ -1,0 +1,76 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  width: 376px;
+}
+
+.double-input {
+  @include flex-row;
+  justify-content: center;
+}
+
+.half-input {
+  width: 180px;
+}
+
+.half-input:first-child {
+  margin-right: 16px;
+}
+
+.add-button {
+  width: 130px;
+  margin-top: 16px;
+}
+
+.space-top {
+  margin-top: 34px;
+}
+
+.close-button {
+  margin-right: 16px;
+  width: 90px;
+}
+
+.done-container {
+  width: 108px;
+}
+
+.add-unit-container {
+  @include flex-row;
+  margin-top: 16px;
+  align-items: center;
+  height: 79px;
+  align-items: flex-start;
+}
+
+.unit-add {
+  width: 180px;
+  margin-right: 16px;
+}
+
+.price-add {
+  width: 124px;
+  margin-right: 16px;
+}
+
+.add-button-container {
+  width: 177px;
+}
+
+.delete {
+  @include flex-column;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 19px;
+}
+
+.delete:hover {
+  background-color: $hover-delete-color;
+  color: $red-button-color
+}
+

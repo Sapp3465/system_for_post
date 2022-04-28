@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  @include flex-column;
+  height: 800px; //for desktop
+  background-color: $auth-form-color;
+  border-right: 1px solid $auth-border-color;
+}
+
+.header {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.buttons-container {
+  @include flex-column;
+  flex: 1;
+}
+
+.main-buttons-container {
+  flex: 1;
+}

@@ -1,0 +1,77 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  @include flex-row;
+  justify-content: center;
+  box-shadow: 0 1px 2px $shadow-color, 0 2px 4px $shadow-color;
+  border-radius: 8px;
+}
+
+.active-container {
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.red {
+  background : $red-button-color;
+  color: $red-button-font-color;
+}
+
+.blue {
+  background : $blue-button-color;
+  color: $blue-button-font-color;
+}
+
+.active-container:active {
+  opacity: 0.8;
+}
+
+.btn {
+  @include font;
+  outline: none;
+  display: block;
+  border: none;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: bold;
+  padding: 7px;
+
+  letter-spacing: 0.05em;
+}
+
+.active-btn {
+  cursor: pointer;
+}
+
+.icon {
+  padding: 7px;
+}
+
+.invisible {
+  background: $invisible;
+  color: $black-color;
+}
+
+.invisible-blue {
+  background: $invisible;
+  color: $blue-button-color;
+  font-weight: bold;
+}
+
+.invisible-block {
+  border: 1px solid $gray-for-button;
+  box-shadow: none;
+  background: $invisible;
+  color: $black-color;
+}
+
+.invisible-blue-block {
+  color: $blue-button-color;
+  font-weight: bold;
+}
+

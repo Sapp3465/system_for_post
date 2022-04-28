@@ -1,0 +1,30 @@
+<div class="main-container">
+  <div class="title">{{ getTitle }}</div>
+  <div class="bordered">
+    <mat-chip-list #chipList>
+      <div class="chip-container">
+        <mat-chip
+          *ngFor="let fruit of usedFruits"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(fruit)">
+          {{fruit}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+      </div>
+
+      <input class="input-class"
+             [placeholder]="getPlaceholder"
+             #fruitInput
+             [formControl]="fruitCtrl"
+             [matAutocomplete]="auto"
+             [matChipInputFor]="chipList"
+             (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+        {{fruit}}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+</div>

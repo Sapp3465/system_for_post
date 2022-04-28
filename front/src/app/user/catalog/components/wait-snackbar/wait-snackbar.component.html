@@ -1,0 +1,12 @@
+<div class="main-container">
+  <div class="spinner-container">
+    <mat-spinner style="margin:0 auto;" diameter="25"></mat-spinner>
+  </div>
+  <div class="text-container">
+    <div class="header-text">{{ data.header }}</div>
+    <div class="description-text">{{ data.description }}</div>
+  </div>
+  <div class="close-container" (click)="close()">
+    <mat-icon class="close-icon">close</mat-icon>
+  </div>
+</div>

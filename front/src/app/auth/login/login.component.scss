@@ -1,0 +1,55 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  @include flex-column;
+  margin-top: 50px;
+  background: $auth-form-color;
+  width: 440px;
+  height: 400px;
+  border: 1px solid $auth-border-color;
+  box-sizing: border-box;
+  border-radius: 8px;
+  align-items: center;
+  padding: 48px;
+}
+
+.header-text {
+  @include font;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 132%;
+}
+
+.content-container {
+  @include flex-column;
+  justify-content: center;
+}
+
+.input-container {
+  margin-top: 40px;
+}
+
+.text-container {
+  @include font;
+  margin-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 12px;
+  line-height: 130%;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: $auth-description-color;
+}
+
+.button-container {
+  margin-top: 30px;
+}
+
+@media (max-width: 320px) {
+  .main-container {
+    width: 320px;
+    border: none;
+    padding: 16px;
+  }
+}

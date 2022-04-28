@@ -1,0 +1,46 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  @include flex-row;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.main-container:active {
+  opacity: 0.8;
+}
+
+.main-container:hover {
+  background-color: $active-background-color;
+}
+
+.icon-container {
+  font-size: 16px;
+}
+
+.text-container {
+  @include font;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 150%;
+
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+
+  margin: 0 8px;
+}
+
+.black {
+  color: $auth-description-color;
+}
+
+.blue {
+  color: $blue-button-color;
+}
+
+.active {
+  background-color: $active-background-color;
+}
+

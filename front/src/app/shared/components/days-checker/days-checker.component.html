@@ -1,0 +1,30 @@
+<div *ngIf="currentDays" class="main-container">
+  <div class="header">Delivery days</div>
+
+  <span class="checkbox-container">
+    <mat-checkbox [(ngModel)]="currentDays.mon">Mon</mat-checkbox>
+  </span>
+
+  <span class="checkbox-container">
+    <mat-checkbox [(ngModel)]="currentDays.tue">Tue</mat-checkbox>
+  </span>
+  <span class="checkbox-container">
+    <mat-checkbox [(ngModel)]="currentDays.wed">Wed</mat-checkbox>
+  </span>
+
+  <span class="checkbox-container">
+    <mat-checkbox [(ngModel)]="currentDays.thu">Thu</mat-checkbox>
+  </span>
+
+  <span class="checkbox-container">
+    <mat-checkbox [(ngModel)]="currentDays.fri">Fri</mat-checkbox>
+  </span>
+
+  <span class="checkbox-container">
+    <mat-checkbox [(ngModel)]="currentDays.sat">Sat</mat-checkbox>
+  </span>
+
+  <span class="checkbox-container">
+    <mat-checkbox [(ngModel)]="currentDays.san">San</mat-checkbox>
+  </span>
+</div>

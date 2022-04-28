@@ -1,0 +1,54 @@
+<app-header name="Customer">
+<!--  <app-header-button (click)="addCustomer()" [active]="false" color="blue" icon="add" name="add customer">-->
+<!--  </app-header-button>-->
+</app-header>
+
+<div class="searcher">
+  <app-header-input placeholder="Customer No, Name, Address..." [(ngModel)]="value"></app-header-input>
+</div>
+
+<div class="content">
+
+  <table mat-table matSort (matSortChange)="sortData($event)" [dataSource]="sortedData" class="mat-elevation-z8">
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef> Customer No </th>
+      <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-sort-header="name" mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="deliveryDays">
+      <th mat-header-cell *matHeaderCellDef> Delivery Days </th>
+      <td mat-cell *matCellDef="let element"> {{element.deliveryDays | days}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="visibleColumns"></tr>
+    <tr (click)="dialogEdit(row)" class="row" mat-row *matRowDef="let row; columns: visibleColumns;"></tr>
+
+  </table>
+
+<app-empty-table *ngIf="dataTable.length === 0" name="customers">
+<!--  <app-header-button [active]="false" color="blue" icon="add" name="add customer">-->
+<!--  </app-header-button>-->
+</app-empty-table>
+
+  <app-custom-paginator
+    *ngrxLet="customersCount$ as count"
+    [itemsInPage]="sortedData.length"
+    [itemsCount]="count"
+    (onChangeOption)="changeHowManyLoad($event)"
+    (onBack)="loadPageData($event)"
+    (onForward)="loadPageData($event)"
+    (onQuickBack)="loadPageData($event)"
+    (onQuickForward)="loadPageData($event)"
+  ></app-custom-paginator>
+
+</div>

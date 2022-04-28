@@ -1,0 +1,18 @@
+<div #tooltip="matTooltip"
+     [matTooltip]="text"
+     [ngClass]="{active : active}"
+     [matTooltipDisabled]="isFull"
+     matTooltipPosition="right"
+     matTooltipClass="tooltip-red"
+     class="main-container"
+     (click)="clickHandler($event)">
+
+  <div class="icon-container">
+    <mat-icon>{{ icon }}</mat-icon>
+  </div>
+
+  <div *ngIf="isFull" class="text-container">
+    {{ text }}
+  </div>
+
+</div>

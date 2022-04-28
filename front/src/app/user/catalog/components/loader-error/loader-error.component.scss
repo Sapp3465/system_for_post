@@ -1,0 +1,22 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  @include flex-row;
+  color : $red-button-color;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.text {
+  @include font;
+  font-size: 14px;
+  line-height: 142%;
+
+  letter-spacing: 0.0168em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}

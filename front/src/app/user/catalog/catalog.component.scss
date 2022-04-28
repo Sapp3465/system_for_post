@@ -1,0 +1,35 @@
+@import 'variables';
+@import 'mixins';
+
+.searcher {
+  width: 350px;
+  height: 40px;
+}
+
+.icon:hover {
+  color: $input-error-color;
+}
+
+.more-unit {
+  @include font;
+  font-size: 12px;
+  line-height: 150%;
+
+  letter-spacing: 0.0168em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: $untouched-color;
+}
+
+.section-box {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: $touched-input-color!important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: $touched-input-color;
+}

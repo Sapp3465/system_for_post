@@ -1,0 +1,47 @@
+@import 'mixins';
+@import 'variables';
+
+.mat-header-row {
+  @include flex-row;
+  flex: 1;
+  padding-right: 24px;
+  padding-left: 24px;
+  text-align: center;
+  background-color: $auth-form-color;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid $auth-border-color;
+}
+
+.empty-header {
+  width: 51px;
+}
+
+.mat-header-cell {
+  @include font;
+  @include flex-row;
+  height: 56px;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 142%;
+
+  letter-spacing: 0.005em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: $black-color;
+}
+
+.section-box {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: $touched-input-color!important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: $touched-input-color;
+}

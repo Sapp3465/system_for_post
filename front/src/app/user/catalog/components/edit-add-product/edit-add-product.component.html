@@ -1,0 +1,123 @@
+<mat-dialog-content>
+  <div class="main-container" [formGroup]="productForm">
+    <app-dialog-header name="{{ data.type === 'add' ? 'Add' : 'Edit' }} Product"></app-dialog-header>
+
+    <div class="content">
+      <div class="first-input_container input-container">
+        <app-custom-input
+          formControlName="code"
+          placeholder="BB-135"
+          name="Product Code"
+          [invalid]="codeError + serverError"
+        >
+        </app-custom-input>
+      </div>
+
+      <div class="input-container">
+        <app-custom-input
+          formControlName="name"
+          placeholder="Banana"
+          name="Name"
+          [invalid]="nameError"
+        >
+        </app-custom-input>
+      </div>
+
+      <div
+        formArrayName="units"
+        *ngFor="let unitControl of units.controls; let i=index" class="add-unit-container">
+
+        <div [ngClass]="{'unit-add': i !== 0, 'half-input': i === 0}" [formGroupName]="i">
+          <app-custom-input
+            formControlName="unit"
+            placeholder="kg"
+            [invalid]="getUnitError(i)"
+            [name]="'Unit-' + 2"
+          ></app-custom-input>
+        </div>
+        <div [ngClass]="{'price-add': i !== 0, 'half-input': i === 0}" [formGroupName]="i">
+          <app-custom-input
+            formControlName="price"
+            placeholder="price"
+            name="Price"
+            [invalid]="getPriceError(i)"
+          ></app-custom-input>
+        </div>
+        <div *ngIf="i !== 0" class="delete" (click)="deleteUnit(i)">
+          <mat-icon class="delete-icon">delete</mat-icon>
+        </div>
+      </div>
+
+      <div class="add-button">
+        <app-custom-button
+          (onClick)="addUnit()"
+          color="invisibleBlue"
+          text="Add Unit"
+          icon="add"
+        ></app-custom-button>
+      </div>
+
+      <div class="input-container">
+        <app-custom-select
+          [invalid]="availabilityError"
+          formControlName="availability" title="Availability"
+          [options]="['in stock', 'out of stock', 'discontinued']"></app-custom-select>
+      </div>
+
+      <div class="space-top" *ngrxLet="allCustomersNo$ as customers">
+        <app-custom-chips-input
+          [default]="data?.data?.exclusive"
+          [all]="getFilteredArr(customers, data?.data?.exclusive)"
+          (onSelect)="setExclusively($event)"
+          placeholder="New Exclusively for"
+          title="Exclusively for (Customer Numbers)"></app-custom-chips-input>
+      </div>
+
+
+      <div class="space-top" *ngrxLet="allProductsCode$ as products">
+        <app-custom-chips-input
+          [default]="data?.data?.replacement"
+          [all]="getFilteredArr(products, data?.data?.replacement)"
+          (onSelect)="setReplacement($event)"
+          placeholder="New Replacement Products"
+          title="Replacement Products (SKUs)"></app-custom-chips-input>
+      </div>
+
+    </div>
+
+    <app-dialog-bottom>
+      <div class="buttons-container">
+        <div class="close-button">
+          <app-custom-button
+            mat-dialog-close
+            color="invisible"
+            text="Cancel">
+          </app-custom-button>
+        </div>
+
+
+        <div *ngIf="data.type === 'edit'; else addTemplate" class="done-container">
+          <app-custom-button
+            (onClick)="editCatalog()"
+            icon="done"
+            [disabled]="productForm.invalid"
+            color="blue"
+            text="Save">
+          </app-custom-button>
+        </div>
+
+        <ng-template #addTemplate>
+          <div class="add-button-container">
+            <app-custom-button
+              (onClick)="addCatalog()"
+              icon="add"
+              [disabled]="productForm.invalid"
+              color="blue"
+              text="Add Product">
+            </app-custom-button>
+          </div>
+        </ng-template>
+      </div>
+    </app-dialog-bottom>
+  </div>
+</mat-dialog-content>

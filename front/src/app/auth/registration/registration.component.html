@@ -1,0 +1,82 @@
+<div class="main-container">
+  <div class="header-text">Registration</div>
+  <div class="content-container">
+    <mat-stepper linear #stepper [formGroup]="registrationForm">
+      <mat-step>
+        <ng-template *ngIf="currentPlatform !== 'mobile'" matStepLabel>Step 1</ng-template>
+        <div class="input-container">
+          <app-custom-input
+            [invalid]="emailError"
+            [success]="!!(email?.touched && !email?.errors)"
+            formControlName="email"
+            placeholder="email@email.com" name="Your unique email">
+          </app-custom-input>
+        </div>
+        <div class="input-container">
+          <app-custom-input
+            [invalid]="noError"
+            [success]="!!(no?.touched && !no?.errors)"
+            formControlName="no"
+            placeholder="SDN-43-A" name="Your unique no">
+          </app-custom-input>
+        </div>
+      </mat-step>
+
+      <mat-step>
+        <ng-template *ngIf="currentPlatform !== 'mobile'" matStepLabel>Step 2</ng-template>
+        <div class="input-container">
+          <app-custom-input
+            [invalid]="nameError"
+            [success]="!!(name?.touched && !name?.errors)"
+            formControlName="name"
+            placeholder="name" name="Your name">
+          </app-custom-input>
+        </div>
+        <div class="input-container">
+          <app-custom-input
+            [invalid]="addressError"
+            [success]="!!(address?.touched && !address?.errors)"
+            formControlName="address"
+            placeholder="address" name="Your address">
+          </app-custom-input>
+        </div>
+        <div class="input-container">
+          <app-custom-input
+            [invalid]="contactNameError"
+            [success]="!!(contactName?.touched && !contactName?.errors)"
+            formControlName="contactName"
+            placeholder="contact name" name="Your contact name">
+          </app-custom-input>
+        </div>
+      </mat-step>
+
+      <mat-step>
+
+        <ng-template *ngIf="currentPlatform !== 'mobile'" matStepLabel>Step 3</ng-template>
+        <div class="input-container">
+          <div class="checkbox-container">
+            <app-day-checker formControlName="days"></app-day-checker>
+          </div>
+        </div>
+        <div class="input-container">
+          <app-custom-input
+            [success]="!!(phone?.touched && !phone?.errors)"
+            formControlName="phone"
+            placeholder="+380123456789" name="Your mobile phone number">
+          </app-custom-input>
+        </div>
+        <div class="text-container">
+          Enter the personal information you registered with to obtain your registration code
+        </div>
+      </mat-step>
+    </mat-stepper>
+
+    <div *ngIf="registrationServerError$ | ngrxPush as error" class="message-error">
+      {{ error }}
+    </div>
+
+    <div class="button-container">
+      <app-custom-button [disabled]="formHasError" (onClick)="clickHandler()" text="Create account" ></app-custom-button>
+    </div>
+  </div>
+</div>

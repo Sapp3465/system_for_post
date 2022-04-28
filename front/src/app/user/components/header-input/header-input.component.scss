@@ -1,0 +1,54 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  @include flex-row;
+  background-color: $auth-form-color;
+  flex: 1;
+  box-sizing: border-box;
+  border: 1px solid $auth-border-color;
+  border-radius: 8px;
+  caret-color: $touched-input-color;
+}
+
+.input-container {
+  flex: 1;
+}
+
+.input {
+  @include font;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  line-height: 150%;
+  background-color: $invisible;
+  padding-top: 8px;
+  width: 270px;
+
+}
+
+.loop-container {
+  padding-top: 10px;
+  padding-bottom: 6px;
+  padding-left: 14px;
+  color: $unused-gray;
+}
+.icon {
+  font-size: 19px;
+}
+
+.delete-container {
+  padding-top: 10px;
+  padding-bottom: 6px;
+  padding-right: 14px;
+  color: $unused-gray;
+  cursor: pointer;
+}
+
+.focused-block {
+  border: 1.5px solid $touched-input-color;
+}
+
+.focused-icon {
+  color: $touched-input-color;
+}

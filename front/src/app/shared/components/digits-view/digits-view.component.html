@@ -1,0 +1,36 @@
+<div class="main-container">
+  <div class="logo-container">
+    <app-logo [isFull]="true"></app-logo>
+  </div>
+  <div class="card-container">
+    <div class="card-header">
+      Let’s get you signed in
+    </div>
+    <div class="card-description">
+      We use this login code so you don’t have to remember or type in yet another long password
+    </div>
+
+    <div class="card-code">
+
+      <div class="code-container">
+        <span class="item">{{ code?.slice(0,1) }}</span>
+        <span class="item">{{ code?.slice(1,2) }}</span>
+        <span class="item">{{ code?.slice(2,3) }}</span>
+        <span class="item">-</span>
+        <span class="item">{{ code?.slice(3,4) }}</span>
+        <span class="item">{{ code?.slice(4,5) }}</span>
+        <span class="item">{{ code?.slice(5,6) }}</span>
+      </div>
+
+      <div class="code-description">
+        Note that this code is only valid for 15 minutes.
+      </div>
+
+    </div>
+    <hr class="line">
+    <div class="card-description bottom-card">
+
+      If you have any question, don’t hesitate to contact us via <span class="email">contact@orderbravo.com</span>
+    </div>
+  </div>
+</div>

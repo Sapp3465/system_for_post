@@ -1,0 +1,26 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container, .left-part {
+  @include flex-row;
+  flex: 1;
+}
+
+.icon-container {
+  color: $untouched-color;
+  width: 20px;
+  margin-top: 4px;
+  margin-right: 18px;
+  cursor: pointer;
+}
+
+.name-container {
+  @include font;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 132%;
+}
+
+.content {
+  @include flex-row;
+}

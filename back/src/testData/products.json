@@ -1,0 +1,36 @@
+[
+    {
+        "code": "code 1",
+        "name": "name 1",
+        "units": [
+            {
+                "unit": "kg",
+                "price": "100"
+            },
+            {
+                "unit": "box",
+                "price": "50"
+            }
+        ],
+        "availability": "in stock",
+        "exclusive": ["my new no"],
+        "replacement": []
+    },
+    {
+        "code": "code 2",
+        "name": "name 2",
+        "units": [
+            {
+                "unit": "kg",
+                "price": "101"
+            },
+            {
+                "unit": "box",
+                "price": "51"
+            }
+        ],
+        "availability": "out of stock",
+        "exclusive": ["my new no"],
+        "replacement": ["code 1"]
+    }
+]

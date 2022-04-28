@@ -1,0 +1,27 @@
+@import 'mixins';
+
+.main-container {
+  width: 398px;
+}
+
+.description {
+  @include font;
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 150%;
+
+  letter-spacing: 0.0168em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.loader-container {
+  margin-top: 24px;
+}
+
+.close-button {
+  width: 58px;
+}
+
+.replace-button {
+  width: 206px;
+}

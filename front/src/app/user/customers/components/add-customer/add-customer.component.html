@@ -1,0 +1,83 @@
+<mat-dialog-content>
+  <div class="main-container">
+    <app-dialog-header name="Add Customer"></app-dialog-header>
+
+    <div class="content">
+      <div class="first-input-container input-container">
+        <app-custom-input
+          placeholder="BB-135"
+          name="Customer No">
+        </app-custom-input>
+      </div>
+
+      <div class="input-container">
+        <app-custom-input
+          placeholder="Barger Bar"
+          name="Name">
+        </app-custom-input>
+      </div>
+
+      <div class="input-container">
+        <app-custom-input
+          placeholder="Second Street 3421 Geneva"
+          name="Delivery Address">
+        </app-custom-input>
+      </div>
+
+      <div class="input-container">
+        <app-day-checker></app-day-checker>
+      </div>
+
+      <div class="input-container">
+        <app-custom-input
+          placeholder="Sam Smith"
+          name="Contact Name">
+        </app-custom-input>
+      </div>
+
+      <div class="input-container">
+        <app-custom-input
+          placeholder="Mobile phone"
+          name="Phone">
+        </app-custom-input>
+      </div>
+
+      <div class="check-container">
+        <mat-checkbox>Notify customer via text message</mat-checkbox>
+      </div>
+
+      <div class="textarea-container">
+        <app-custom-textarea
+          placeholder="some text"
+          name="Shortlisted Products"
+          [invalid]="''"
+        ></app-custom-textarea>
+      </div>
+
+
+
+    </div>
+
+    <app-dialog-bottom>
+      <div class="buttons-container">
+        <div class="close-button">
+          <app-custom-button
+            mat-dialog-close
+            color="invisible"
+            text="Cancel">
+          </app-custom-button>
+        </div>
+
+        <div class="done-container">
+          <app-custom-button
+            icon="done"
+            [disabled]="true"
+            color="blue"
+            text="Replace Catalog">
+          </app-custom-button>
+        </div>
+
+      </div>
+    </app-dialog-bottom>
+  </div>
+</mat-dialog-content>

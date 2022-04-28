@@ -1,0 +1,73 @@
+<mat-dialog-content>
+  <div class="main-container">
+    <app-dialog-header name="Add Order"></app-dialog-header>
+
+    <div class="content">
+      <div class="mgt16">
+        <app-custom-textarea name="Note" placeholder="note..."></app-custom-textarea>
+      </div>
+      <div class="address-container mgt16">
+        <app-custom-input
+          placeholder="Address"
+          name="Address">
+        </app-custom-input>
+      </div>
+      <div class="units-container">
+        <!--        TODO FOR-->
+        <div class="three-input-container mgt16">
+          <div class="item-input">
+            <app-custom-input
+              placeholder="Code"
+              name="Code">
+            </app-custom-input>
+          </div>
+          <div class="item-input">
+            <app-custom-input
+              placeholder="kg"
+              name="Unit">
+            </app-custom-input>
+          </div>
+          <div class="item-input">
+            <app-custom-input
+              placeholder="12"
+              name="Quantity">
+            </app-custom-input>
+          </div>
+          <!--          TODO IF I !== 0-->
+          <div class="delete">
+            <mat-icon class="delete-icon">delete</mat-icon>
+          </div>
+        </div>
+
+        <div class="add-button mgt16">
+          <app-custom-button
+            color="invisibleBlue"
+            text="Add Unit"
+            icon="add"
+          ></app-custom-button>
+        </div>
+      </div>
+    </div>
+
+    <app-dialog-bottom>
+      <div class="buttons-container">
+        <div class="close-button">
+          <app-custom-button
+            mat-dialog-close
+            color="invisible"
+            text="Cancel">
+          </app-custom-button>
+        </div>
+
+        <div class="add-button-container">
+          <app-custom-button
+            (onClick)="save()"
+            icon="add"
+            color="blue"
+            text="Add">
+          </app-custom-button>
+        </div>
+      </div>
+    </app-dialog-bottom>
+  </div>
+</mat-dialog-content>

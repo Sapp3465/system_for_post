@@ -1,0 +1,62 @@
+<mat-dialog-content>
+    <div class="main-container" [formGroup]="customerForm">
+      <app-dialog-header name="Edit Customer"></app-dialog-header>
+
+      <div class="content">
+
+        <div class="first-input-container input-container">
+          <app-custom-input
+            formControlName="no"
+            [invalid]=
+              "no?.touched && no?.errors?.required ? 'no can not be empty' : '' +
+               no?.touched && no?.errors?.maxlength ? 'no is very long' : '' + serverError"
+            placeholder="BB-135"
+            name="Customer No">
+          </app-custom-input>
+        </div>
+
+        <div class="input-container">
+          <app-custom-input
+            [disabled]="true"
+            [placeholder]="data.name"
+            name="Name">
+          </app-custom-input>
+        </div>
+
+        <div class="input-container">
+          <app-custom-input
+            [disabled]="true"
+            [placeholder]="data.address"
+            name="Delivery Address">
+          </app-custom-input>
+        </div>
+
+        <div class="input-container">
+          <app-day-checker formControlName="deliveryDays"></app-day-checker>
+        </div>
+
+      </div>
+
+      <app-dialog-bottom>
+        <div class="buttons-container">
+          <div class="close-button">
+            <app-custom-button
+              mat-dialog-close
+              color="invisible"
+              text="Cancel">
+            </app-custom-button>
+          </div>
+
+          <div class="done-container">
+            <app-custom-button
+              (onClick)="saveData()"
+              icon="done"
+              [disabled]="customerForm.invalid"
+              color="blue"
+              text="Save">
+            </app-custom-button>
+          </div>
+        </div>
+      </app-dialog-bottom>
+    </div>
+</mat-dialog-content>

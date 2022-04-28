@@ -1,0 +1,110 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  @include flex-column;
+  padding: 30px;
+  align-items: center;
+}
+
+.card-container {
+  width: 440px;
+  height: 440px;
+  background-color: $auth-form-color;
+  border: 1px solid $auth-border-color;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.card-header {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 132%;
+  width: 260px;
+  height: 32px;
+  margin-left: 90px;
+  margin-right: 90px;
+  margin-top: 37px;
+  text-align: center;
+}
+
+.card-description {
+
+  width: 344px;
+  height: 48px;
+  margin-left: 48px;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 142%;
+  text-align: center;
+  letter-spacing: 0.0168em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: $auth-description-color;
+}
+
+.card-code {
+  margin-top: 11px;
+  height: 186px;
+}
+
+.code-container {
+  @include font;
+  @include flex-row;
+  margin-bottom: 24px;
+  padding-top: 48px;
+  width: 260px;
+  height: 32px;
+  margin-left: 89px;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 132%;
+
+  flex: 1;
+}
+
+.code-description {
+  margin-left: 87px;
+  //margin-bottom: 66px;
+  width: 266px;
+  height: 16px;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 130%;
+  /* identical to box height, or 16px */
+
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  /* Secondary/05 */
+
+  color: $untouched-color;
+}
+
+.line {
+  height: 0;
+  left: 0;
+  right: 0;
+  top: calc(50% - 0px / 2);
+
+  border: 1px solid $auth-border-color;
+}
+
+.bottom-card {
+  margin-top: 38px;
+}
+
+.email {
+  color: $touched-input-color;
+}
+
+.item {
+  flex: 1
+}

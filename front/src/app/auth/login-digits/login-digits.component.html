@@ -1,0 +1,23 @@
+<div class="main-container" *ngrxLet="loadingService.isLoading$ as isLoad">
+  <div class="header-container">
+    Please check your email
+  </div>
+  <div class="top-description-container">
+    We use this {{ pageType }} code so you don’t have to remember or type in yet another long password
+  </div>
+  <div class="code-input-container">
+    <app-pin-input
+      *ngrxLet="serverErrorMessage$ as error"
+      [messageError]="error"
+      [disabled]="isLoad"
+      (onEntered)="onEvent($event)"
+      [name]="'Your ' + pageType + ' code'">
+    </app-pin-input>
+    <div class="spinner" *ngIf="isLoad">
+      <mat-spinner style="margin:0 auto;" diameter="25"></mat-spinner>
+    </div>
+  </div>
+  <div class="bottom-description-container" *ngIf="!isLoad">
+    We've sent a 6 digit {{ pageType }} code to example@email.com Can't find it? Check your spam folder.
+  </div>
+</div>

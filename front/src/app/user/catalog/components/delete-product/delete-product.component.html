@@ -1,0 +1,32 @@
+<mat-dialog-content>
+  <div class="main-container">
+    <app-dialog-header name="Delete product?"></app-dialog-header>
+
+    <div class="content">
+      <div class="description">
+        Are you sure you want to delete <b>“{{ data?.name }}”</b> from the catalog?
+      </div>
+    </div>
+
+    <app-dialog-bottom>
+      <div class="buttons-container">
+        <div class="close">
+          <app-custom-button
+            mat-dialog-close
+            color="invisible"
+            text="Cancel">
+          </app-custom-button>
+        </div>
+
+        <div class="delete">
+          <app-custom-button
+            (onClick)="deleteItem()"
+            icon="delete"
+            color="red"
+            text="Delete">
+          </app-custom-button>
+        </div>
+      </div>
+    </app-dialog-bottom>
+  </div>
+</mat-dialog-content>

@@ -1,0 +1,26 @@
+<div class="main-container">
+  <div
+    [ngClass]="{
+    'focused-text': isFocused,
+    'error-text' : !isFocused && !!invalid
+    }"
+    class="header">
+    {{ name }}
+  </div>
+
+  <div
+    class="textarea-container"
+    [ngClass]="{
+    'focused-container' : isFocused,
+    'error-container' : !!invalid && !isFocused
+    }">
+    <textarea
+      [(ngModel)]="value"
+      (focus)="setFocus()" (blur)="isFocused = false"
+      [placeholder]="placeholder" class="textarea"></textarea>
+  </div>
+
+  <div *ngIf="!!invalid" class="header error-text">
+    {{ invalid }}
+  </div>
+</div>

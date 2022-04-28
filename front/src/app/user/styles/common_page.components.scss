@@ -1,0 +1,57 @@
+@import 'variables';
+@import 'mixins';
+
+.searcher {
+  width: 350px;
+  height: 40px;
+}
+
+.content {
+  margin-top: 24px;
+}
+
+table {
+  width: 100%;
+  box-shadow: none;
+  border-radius: 8px 8px 0 0;
+  overflow:hidden !important;
+  cursor: pointer;
+
+  th {
+   @include font;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 142%;
+
+    letter-spacing: 0.005em;
+    font-feature-settings: 'tnum' on, 'lnum' on;
+    color: $black-color;
+
+  }
+
+  th:hover {
+    border-bottom: 2px solid $touched-input-color;
+  }
+}
+
+.row {
+  @include font;
+  font-size: 16px;
+  line-height: 150%;
+
+  letter-spacing: 0.0168em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.row:hover {
+  background-color: $table-hover-color;
+}
+
+.sort-icon-container {
+  @include flex-row;
+  align-items: center;
+
+  .text-sort {
+    margin-right: 10px;
+  }
+}

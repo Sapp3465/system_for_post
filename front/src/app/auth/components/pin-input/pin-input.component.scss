@@ -1,0 +1,67 @@
+@import 'variables';
+@import 'mixins';
+
+.name {
+  @include font;
+  font-size: 12px;
+  line-height: 130%;
+  color: $untouched_color;
+  margin-left: 15px;
+}
+
+.code-container {
+  @include flex-row;
+}
+
+.input-container {
+  width: 150px;
+  border: 1px solid $border_untouched_color;
+  border-radius: 8px;
+}
+
+.separator {
+  font-size: 30px;
+  padding-left: 5px;
+  padding-right: 8px;
+  padding-top: 10px;
+}
+
+.input-class {
+  @include font;
+  margin-left: 10px;
+  width: 130px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 30px;
+  letter-spacing: 30px;
+  line-height: 150%;
+}
+
+.focused-text {
+  color: $touched-input-color;
+}
+
+.focused-container {
+  border: 1px solid $touched-input-color;
+  caret-color: $touched-input-color;
+}
+
+.error-text {
+  color: $input-error-color;
+}
+
+.error-container {
+  border: 1px solid $input-error-color;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+@media (max-width: 320px) {
+  .input-class{
+    width: 100px;
+    letter-spacing: 20px;
+  }
+}

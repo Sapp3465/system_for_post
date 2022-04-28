@@ -1,0 +1,127 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  @include flex-row;
+  justify-content: center;
+  min-height: 700px;
+  width: 100%;
+  background-color: $auth-form-color;
+}
+
+.data-container {
+  margin-top: 50px;
+  width: 553px;
+}
+
+.logo {
+  margin-bottom: 24px;
+}
+
+.order {
+  @include flex-row;
+  flex: 1;
+  align-items: center;
+}
+
+.order-header {
+  @include font;
+  flex: 1;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 132%;
+}
+
+.order-status {
+  @include font;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 150%;
+
+  letter-spacing: 0.005em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+  color: $black-color;
+}
+
+.success-status {
+  color: $input-success-color;
+}
+
+.cancel-status {
+  color: $input-error-color;
+}
+
+.order-description {
+  @include font;
+  font-size: 14px;
+  line-height: 142%;
+  margin-bottom: 16px;
+
+  letter-spacing: 0.0168em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+  color: $untouched-color;
+}
+
+.user-data-container {
+  @include flex-row;
+  flex: 1;
+  margin-bottom: 18px;
+}
+
+.customer-data {
+  flex: 1;
+}
+
+.delivery-data {
+  flex: 1;
+}
+
+.small-header {
+  @include font;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 142%;
+
+  letter-spacing: 0.005em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  flex: 1;
+}
+
+.content-text {
+  @include font;
+  font-size: 16px;
+  line-height: 150%;
+  flex: 1;
+
+  letter-spacing: 0.0168em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.notes-container {
+  margin-bottom: 29px;
+}
+
+.right-text {
+  text-align: right;
+}
+
+.products-container {
+  border: 1px solid $auth-border-color;
+  border-radius: 6px;
+}
+
+.table-item-container {
+  @include flex-row;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 40px;
+  border-bottom: 1px solid $auth-border-color;
+}
+
+.item {
+  margin-left: 16px;
+  margin-right: 16px;
+}

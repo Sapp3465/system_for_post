@@ -1,0 +1,67 @@
+<div class="main-container">
+  <mat-expansion-panel [ngClass]="{
+    'active-container': isOpen
+    }"
+                       class="row-item" hideToggle="true"
+                       (opened)="onOpen()"
+                       (closed)="onClose()">
+    <mat-expansion-panel-header class="mat-row" >
+      <div class="header-container" [ngClass]="{
+    'active-header': isOpen
+    }">
+      <span class="icon-container">
+      <mat-icon [ngClass]="{
+    'active': isOpen
+    }" class="icon-arrow">{{isOpen  ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}
+      </mat-icon>
+    </span>
+        <span class="mat-cell">{{ data.orderNo }}</span>
+        <span class="mat-cell">{{ data.customer }}</span>
+        <span class="mat-cell">{{ data.customerNo }}</span>
+        <span class="mat-cell">{{ data.items }}</span>
+        <span class="mat-cell">{{ data.notes| cut: 14 }}</span>
+        <span class="mat-cell">{{ data.ordered }}</span>
+        <span class="mat-cell">{{ data.reqDelivery }}</span>
+        <span class="mat-cell button-cell" [ngClass]="
+        {
+        'change-cell': data.status.toLowerCase() !== 'confirmed',
+         'confirmed-cell': data.status.toLowerCase() === 'confirmed'
+        }">
+          {{ data.status }}
+        </span>
+      </div>
+    </mat-expansion-panel-header>
+    <div class="products-container">
+      <div class="products-header">
+        <div class="notes-container">
+          <div class="head-text">Notes :</div>
+          <div class="description-text">{{ data.notes }}</div>
+        </div>
+        <div class="address-container">
+          <div class="head-text">Delivery Address:</div>
+          <div class="description-text">{{ data.address }}</div>
+        </div>
+        <div class="print-container" (click)="printOrder()">
+          <mat-icon>print</mat-icon>
+          <span class="print-text">Print Order</span>
+        </div>
+      </div>
+      <div class="products-rows-container">
+        <div class="row-container">
+          <div class="head-text product-code first-in-row">Product Code</div>
+          <div class="head-text product">Product</div>
+          <div class="head-text unit">Unit</div>
+          <div class="head-text quantity last-in-row">Quantity</div>
+        </div>
+        <!--        TODO products for-->
+        <div class="row-container" *ngFor="let product of data.products">
+          <div class="product-code first-in-row">{{product.code}}</div>
+          <div class="product">{{product.name}}</div>
+          <div class="unit">{{product.unit}}</div>
+          <div class="quantity last-in-row">{{product.quantity}}</div>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</div>
+

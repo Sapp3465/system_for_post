@@ -1,0 +1,56 @@
+<mat-accordion displayMode="flat" multi class="mat-table">
+  <section matSort class="mat-header-row">
+    <span class="empty-header"></span>
+    <span class="mat-header-cell">Order No
+    </span>
+    <span class="mat-header-cell">Customer
+      <app-sort-icon></app-sort-icon>
+    </span>
+    <span class="mat-header-cell">Customer No</span>
+    <span class="mat-header-cell">Items</span>
+    <span class="mat-header-cell">Notes</span>
+    <span class="mat-header-cell">Ordered
+      <mat-date-range-input [ngStyle]="{opacity: 0, width: 0}" [rangePicker]="picker1">
+          <div [ngStyle]="{display:'none'}">
+            <input matStartDate placeholder="Start date">
+            <input matEndDate placeholder="End date">
+          </div>
+        </mat-date-range-input>
+        <app-sort-icon (click)="picker1.open()"></app-sort-icon>
+        <mat-date-range-picker #picker1></mat-date-range-picker>
+    </span>
+    <span class="mat-header-cell">Req.Delivery
+      <mat-date-range-input [ngStyle]="{opacity: 0, width: 0}" [rangePicker]="picker2">
+          <div [ngStyle]="{display:'none'}">
+            <input matStartDate placeholder="Start date">
+            <input matEndDate placeholder="End date">
+          </div>
+        </mat-date-range-input>
+        <app-sort-icon (click)="picker2.open()"></app-sort-icon>
+        <mat-date-range-picker #picker2></mat-date-range-picker>
+    </span>
+    <span class="mat-header-cell">Status
+      <app-sort-icon [matMenuTriggerFor]="menuStatus"></app-sort-icon>
+      <mat-menu #menuStatus="matMenu">
+            <section (click)="$event.stopPropagation()" class="section-box" >
+              <p><mat-checkbox
+                >New</mat-checkbox></p>
+              <p><mat-checkbox
+                >Canceled</mat-checkbox></p>
+              <p><mat-checkbox
+                >In Progress</mat-checkbox></p>
+              <p><mat-checkbox
+              >Delivered</mat-checkbox></p>
+              <p><mat-checkbox
+              >Completed</mat-checkbox></p>
+            </section>
+          </mat-menu>
+    </span>
+  </section>
+
+  <div class="row-container">
+    <app-table-orders-row (onActivate)="chooseOrder($event)" (onInactivate)="removeOrder($event)" *ngFor="let item of data" [data]="item"></app-table-orders-row>
+  </div>
+
+
+</mat-accordion>

@@ -1,0 +1,63 @@
+@import 'variables';
+@import 'mixins';
+
+.name-class {
+  @include font;
+  font-size: 12px;
+  line-height: 130%;
+  color: $untouched_color;
+  margin-left: 15px;
+}
+
+.input-container {
+  @include flex-row;
+  padding: 10px;
+  border: 1px solid $border-untouched-color;
+  border-radius: 8px;
+}
+
+.input {
+  @include font;
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  line-height: 150%;
+  background-color: $invisible;
+  width: 100%;
+}
+
+.focused-container {
+  border: 1px solid $touched-input-color;
+}
+
+.focused-text {
+  color : $touched-input-color;
+}
+
+.focused-cursor {
+  caret-color: $touched-input-color;
+}
+
+.error-container {
+  border: 1px solid $input-error-color;
+}
+
+.error-text {
+  color: $input-error-color;
+}
+
+.success-container {
+  border: 1px solid $input-success-color;
+}
+
+.success-text {
+  color: $input-success-color;
+}
+
+.disabled-container {
+  background-color: $disabled-color;
+  font-weight: bold;
+}
+
+

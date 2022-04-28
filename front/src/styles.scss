@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+
+html, body { height: 100%; background: $app_background}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.tooltip-red {
+  background-color: $auth-description-color;
+  color : $auth-form-color;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+@mixin snackbar-global-class {
+  .main-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .icon-container {
+    width: 20px;
+    color: $light-green-color;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-container {
+    color: $auth-form-color;
+    width: 300px;
+  }
+
+  .header-text {
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .description-text {
+    width: 180px;
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 142%;
+  }
+
+  .close-container {
+    cursor: pointer;
+  }
+
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+}
+
+.done-snack.mat-snack-bar-container {
+  @include snackbar-global-class;
+  background-color: $done-background;
+}
+
+.wait-snack.mat-snack-bar-container {
+  @include snackbar-global-class;
+  background-color: $wait-background;
+}

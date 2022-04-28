@@ -1,0 +1,39 @@
+@import 'variables';
+@import 'mixins';
+
+
+.bordered {
+  border: 1px solid $border-untouched-color;
+  border-radius: 8px;
+}
+
+.title {
+  @include font;
+  font-size: 12px;
+  line-height: 130%;
+  color: $untouched_color;
+  margin-left: 15px;
+}
+
+.input-class {
+  @include font;
+  border: none;
+  outline: none;
+  letter-spacing: 0.0168em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  font-size: 16px;
+  line-height: 150%;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: $invisible;
+}
+
+.chip-container {
+  padding: 8px 0 8px 8px;
+}
+
+.chip-container::ng-deep .mat-chip.mat-standard-chip {
+  background-color: $active-background-color;
+  border-radius: 6px;
+}
+

@@ -1,0 +1,15 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  @include flex-row;
+  flex: 1;
+  height: 60px;
+  border-top: 1px solid $auth-border-color;
+  margin-left: -24px;
+  margin-top: 22px;
+}
+
+.separator {
+  flex: 1;
+}

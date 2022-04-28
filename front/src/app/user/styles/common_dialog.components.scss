@@ -1,0 +1,19 @@
+@import 'mixins';
+
+.buttons-container {
+  @include flex-row;
+  padding: 20px;
+}
+
+.close-button {
+  margin-right: 16px;
+  width: 90px;
+}
+
+.first-input-container {
+  margin-top: 6px;
+}
+
+.input-container {
+  margin-top: 16px;
+}

@@ -1,0 +1,31 @@
+<div class="main-container">
+  <div class="separator"></div>
+
+  <div class="content-container">
+
+    <div class="chooser-container">
+      <div class="text">Items per page:</div>
+      <div class="chooser-width">
+        <div class="chooser">
+          <mat-select [(ngModel)]="itemsSize" (ngModelChange)="setItemSize()" placeholder="5">
+            <mat-option *ngFor="let num of optionsPage" [value]="num">{{ num }}</mat-option>
+          </mat-select>
+        </div>
+      </div>
+    </div>
+
+    <div class="text separate-text">{{ currentBlock }}-{{ itemsInPage }} of {{ blockCount }}</div>
+    <div class="button" (click)="firstPage()">
+      <mat-icon class="icon">first_page</mat-icon>
+    </div>
+    <div class="button" (click)="backPage()">
+      <mat-icon class="icon">chevron_left</mat-icon>
+    </div>
+    <div class="button" (click)="nextPage()">
+      <mat-icon class="icon">chevron_right</mat-icon>
+    </div>
+    <div class="button" (click)="lastPage()">
+      <mat-icon class="icon">last_page</mat-icon>
+    </div>
+  </div>
+</div>

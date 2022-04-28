@@ -1,0 +1,14 @@
+<div
+     class="main-container"
+     [ngClass]="{
+      black : color !== 'blue',
+      blue : color === 'blue',
+      active : active || !isFull
+     }">
+  <div *ngIf="!!icon" class="icon-container">
+    <mat-icon>{{ icon }}</mat-icon>
+  </div>
+  <div *ngIf="isFull" class="text-container">
+    {{ name }}
+  </div>
+</div>

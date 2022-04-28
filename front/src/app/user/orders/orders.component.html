@@ -1,0 +1,32 @@
+<app-header name="Orders">
+  <app-header-button (click)="editDialog()" *ngIf="activeData.length && status === 'customer'" color="blue" icon="edit" name="edit order">
+  </app-header-button>
+
+  <app-header-button (click)="addDialog()" color="blue" icon="add" name="add order">
+  </app-header-button>
+</app-header>
+<div class="searcher">
+  <app-header-input placeholder="Order, Customer, Notes..." [(ngModel)]="val"></app-header-input>
+</div>
+
+<div class="content">
+
+  <app-table-orders (onChooseActive)="onChooseData($event)" (onRemoveActive)="onRemoveData($event)" [data]="dataTable">
+  </app-table-orders>
+
+  <app-empty-table *ngIf="dataTable.length === 0" name="orders">
+    <app-header-button [active]="false" color="blue" icon="add" name="add order">
+    </app-header-button>
+  </app-empty-table>
+
+  <app-custom-paginator
+    [itemsInPage]="10"
+    [itemsCount]="103"
+    (onChangeOption)="changeHowManyLoad($event)"
+    (onBack)="loadPageData($event)"
+    (onForward)="loadPageData($event)"
+    (onQuickBack)="loadPageData($event)"
+    (onQuickForward)="loadPageData($event)"
+  ></app-custom-paginator>
+
+</div>

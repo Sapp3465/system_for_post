@@ -1,0 +1,43 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  @include flex-row;
+  cursor: pointer;
+  color: $auth-description-color;
+  border-radius: 0 12px 12px 0;
+}
+
+.main-container:hover {
+  background-color: $active-background-color;
+  color: $touched-input-color;
+}
+
+.icon-container {
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.text-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 12px;
+  height: 24px;
+
+  @include font;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 150%;
+  align-items: center;
+  letter-spacing: 0.005em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+}
+
+.active {
+  background-color: $active-background-color;
+  color: $touched-input-color;
+}
+
+

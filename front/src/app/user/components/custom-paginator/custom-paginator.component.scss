@@ -1,0 +1,79 @@
+@import 'variables';
+@import 'mixins';
+
+.main-container {
+  @include flex-row;
+  flex: 1;
+  background-color: $auth-form-color;
+  border: 1px solid $auth-form-color;
+  box-sizing: border-box;
+  border-radius: 0 0 8px 8px;
+  height: 56px;
+}
+
+.separator {
+  flex: 1;
+}
+
+.content-container {
+  @include flex-row;
+  justify-content: center;
+  padding: 8px;
+}
+
+.text {
+  @include font;
+  height: 20px;
+  font-size: 14px;
+  line-height: 142%;
+  letter-spacing: 0.0168em;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: $unused-gray;
+  padding: 8.5px;
+}
+
+.separate-text {
+  margin-left: 23.5px;
+  margin-right: 11.5px;
+}
+
+.chooser-width {
+  width: 80px;
+  height: 40px;
+  border: 1px solid $border-untouched-color;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.chooser-container {
+  @include flex-row;
+  margin-left: 3.5px;
+}
+
+.chooser {
+  @include font;
+  padding: 8px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.button {
+  @include flex-column;
+  width: 32px;
+  height: 32px;
+  margin-left: 12px;
+  background-color: $auth-border-color;
+  border-radius: 18px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $untouched-color;
+}
